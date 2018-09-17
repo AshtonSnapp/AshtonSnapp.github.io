@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <!-- <([ Metadata and the Page Title ])> -->
+        <meta charset="utf-8">
+        <meta name="author" content="Ashton Scott Snapp">
+        <meta name="keywords" content="technology">
+        <meta name="description" content="boop">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ashton Snapp's Personal Website</title>
+    </head>
+    <body>
+        <header>
+            <h1>Neutron Computer Project</h1>
+        </header>
+        <nav>
+            <hr>
+            <a href="../index.html">Return to the main site</a>
+            <hr>
+        </nav>
+        <main>
+            <p>
+                The Neutron Computer Project (read: thing I want to do but cannot) is a computer based around the 65816 microprocessor from Western Design Center.<br>
+                This is a 16-bit processor that was used in the SNES and it has an 8-bit emulation mode compatible with the 6502.<br>
+            </p>
+            <h2>What about memory and IO?</h2>
+            <p>
+                To discuss this, we need a pinout of the 65816.
+            </p>
+            <img src="65816dippin.PNG" alt="65816 DIP Pinout">
+            <p>
+                Looks like heiroglyphs, right? This is the pinout for the dual in-line package of the 65816.<br>
+                To make it simple, A and a number means an address pin, and D and a number means a data or bank bus pin.<br>
+                Yes, the data bus does double duty as a memory bank bus. The 16 address pins allow access to up to 65,536 bytes, or 64 kilobytes.<br>
+                The 8 data and banking pins extend that to 16,777,220 bytes, or 16 megabytes. This is because we essentially have 256 banks of 64 kilobytes.<br>
+                The address pins and banking pins are what we will use to allow communication between the processor and both memory and IO devices.<br>
+                In essence, we can assign different banks to memory and IO, although bank 0 is also used for the processor stack, which runs from address $000000 to address $00FFFF.<br>
+                A sound idea would be to leave bank 0 entirely to the stack, which will prevent Stack Overflows and Underflows. This leaves us with the other 255 banks.<br>
+                Input/Output should also have only one bank, as peripherals should not need more than 64 kilobytes to work anyways.<br>
+                The remaining 254 banks can be divided between Read Only Memory (ROM) and Random Access Memory (RAM).<br>
+                As for the hardware side of things, each memory chip should equal one bank. So, 64 kilobyte (512 kilobit because no tech suppliers list memory chips in bytes) chips will be used.<br>
+                How many banks are given to ROM depends on one thing: what will be put on ROM?<br>
+                Will the ROM contain both an 8-bit OS (Commodore Basic) and a 16-bit OS? Will it just contain a BIOS with a fallback Commodore Basic version if it can't find an SD card with a 16-bit OS on it?<br>
+                Not to mention what IO will actually be there. I know there will be a keyboard port (probably PS/2) and an SD card port, but what else could we have?
+            </p>
+            <h2>What about video and audio?</h2>
+            <p>
+                This is the BIGGEST problem to face, as most of the old video and audio chips are no longer being manufactured. So, we will have to improvise.<br>
+            </p>
+            <h3>Video</h3>
+            <p>
+                The video chip will have to be created from scratch using an FPGA or a microcontroller.
+            </p>
+            <h3>Audio</h3>
+            <p>
+                I have been told that Yamaha still makes FM synth chips, but I can't find one that suits my needs.
+            </p>
+        </main>
+        <footer>
+            <hr>
+            <p>&copy;Snapp 2018, Content Rights Reserved, Source Rights Not Reserved</p>
+        </footer>
+    </body>
+</html>
