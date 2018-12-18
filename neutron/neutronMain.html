@@ -8,6 +8,13 @@
         <meta name="description" content="boop">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ashton Snapp's Personal Website</title>
+
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse:
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -28,9 +35,89 @@
                 To discuss this, we need a pinout of the 65816.
             </p>
             <img src="65816dippin.PNG" alt="65816 DIP Pinout">
-            <p>
-
-            </p>
+            <table>
+                <caption>65816 Pinout Description</caption>
+                <tr>
+                    <th>Pin(s)</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Vector Pull</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Ready</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Abort Input</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Interrupt Request</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Memory Lock</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Non-Maskable Interrupt</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Valid Program Address</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Positive Power Supply</td>
+                </tr>
+                <tr>
+                    <td>9-20</td>
+                    <td>Address Bus Pins 0-11</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>Internal Logic Ground</td>
+                </tr>
+                <tr>
+                    <td>22-25</td>
+                    <td>Address Bus Pins 12-15</td>
+                </tr>
+                <tr>
+                    <td>33-26</td>
+                    <td>Data Bus/Bank Address Bus Pins 0-7</td>
+                </tr>
+                <tr>
+                    <td>34</td>
+                    <td>Read/Write</td>
+                </tr>
+                <tr>
+                    <td>35</td>
+                    <td>Emulation/Native Mode Select</td>
+                </tr>
+                <tr>
+                    <td>36</td>
+                    <td>Bus Enable</td>
+                </tr>
+                <tr>
+                    <td>37</td>
+                    <td>Phase 2 In Clock</td>
+                </tr>
+                <tr>
+                    <td>38</td>
+                    <td>Memory and Index Register Mode Select</td>
+                </tr>
+                <tr>
+                    <td>39</td>
+                    <td>Valid Data Address</td>
+                </tr>
+                <tr>
+                    <td>40</td>
+                    <td>Reset</td>
+                </tr>
+            </table>
         </main>
         <footer>
             <hr>
